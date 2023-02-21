@@ -1,4 +1,3 @@
-import moment from 'moment';
 import React from 'react';
 
 class CountdownTimer extends React.Component {
@@ -8,15 +7,14 @@ class CountdownTimer extends React.Component {
     }
 
     componentDidMount() {
-        const countdownDate = moment('2023-03-24 00:00:00');
+        const targetDate = new Date('2023-03-24T13:59:00-0800');
         const intervalId = setInterval(() => {
-            const now = moment();
-            const diff = countdownDate.diff(now);
-            const duration = moment.duration(diff);
-            const days = Math.floor(duration.asDays());
-            const hours = duration.hours();
-            const minutes = duration.minutes();
-            const seconds = duration.seconds();
+            const now = new Date();
+            const diff = targetDate - now;
+            const days = Math.floor(diff / (1000*60*60*24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
             const units = [
                 { value: days, label: 'day' },
                 { value: hours, label: 'hour' },
@@ -38,7 +36,7 @@ class CountdownTimer extends React.Component {
 
     render(){
         return<div className="text-center font-vw backdrop-blur-sm p-5 rounded-lg">
-        <p className="mb-5 text-xl md:text-5xl">Days Until Vegas:</p>
+        <p className="mb-5 text-xl md:text-5xl">Suzie and Priya Land in Vegas!</p>
         <p className="text-2xl md:text-6xl">{this.state.countdownTime}</p>
         <p className="mt-6">Happy Suzie Birthday!</p>
         </div>
