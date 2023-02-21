@@ -3,7 +3,7 @@ import {CountdownTimer} from './CountdownTimer';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex justify-center items-center h-screen font-anton max-w-5xl mx-auto">
       <CountdownTimer />
     </div>
   )

@@ -17,7 +17,17 @@ class CountdownTimer extends React.Component {
             const hours = duration.hours();
             const minutes = duration.minutes();
             const seconds = duration.seconds();
-            const countdownTime = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            const units = [
+                { value: days, label: 'day' },
+                { value: hours, label: 'hour' },
+                { value: minutes, label: 'minute' },
+                { value: seconds, label: 'second' },
+            ];
+            const countdownTime = units.reduce((acc, { value, label }) => {
+                // determine whether the value is 1 or not to choose the appropriate pluralization
+                const pluralizedLabel = value === 1 ? label : `${label}s`;
+                return value > 0 ? `${acc} ${value} ${pluralizedLabel}` : acc;
+              }, '');
             this.setState({ countdownTime, intervalId });
         }, 1000);
     }
@@ -27,7 +37,11 @@ class CountdownTimer extends React.Component {
     }
 
     render(){
-        return <div>{this.state.countdownTime}</div>
+        return<div className="text-center font-vw backdrop-blur-md p-5">
+        <p className="mb-5 text-xl md:text-5xl">Days Until Vegas:</p>
+        <p className="text-2xl md:text-6xl">{this.state.countdownTime}</p>
+        <p className="mt-6">Happy Suzie Birthday!</p>
+        </div>
     }
 };
 
