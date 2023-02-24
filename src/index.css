@@ -20,3 +20,76 @@ video,
 video {
   z-index: -1;
 }
+
+@keyframes blinker {
+  10% {
+    color: blue;
+  }
+  20% {
+    color: green;
+  }
+  30% {
+    color: red;
+  }
+  40% {
+    color: white;
+  }
+  50% {
+    color: orange;
+  }
+  60% {
+    color: pink;
+  }
+  70% {
+    color: green;
+  }
+  80% {
+    color: purple;
+  }
+  90% {
+    color: grey;
+  }
+  99% {
+    color: red;
+  }
+}
+
+@keyframes blinker2 {
+  10% {
+    color: grey;
+  }
+  20% {
+    color: green;
+  }
+  30% {
+    color: red;
+  }
+  40% {
+    color: white;
+  }
+  50% {
+    color: green;
+  }
+  60% {
+    color: pink;
+  }
+  70% {
+    color: orange;
+  }
+  80% {
+    color: purple;
+  }
+  90% {
+    color: blue;
+  }
+  99% {
+    color: grey;
+  }
+}
+
+.blinker {
+  animation: blinker 3s linear infinite;
+}
+.blinker2 {
+  animation: blinker2 4s linear infinite;
+}
