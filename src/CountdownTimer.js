@@ -34,7 +34,7 @@ class CountdownTimer extends React.Component {
     }
 
     render(){
-        return<div className="text-center font-vw backdrop-blur-sm p-5 rounded-lg">
+        return<div className="mx-5 text-center font-vw backdrop-blur-sm backdrop-contrast-75 p-5 rounded-lg">
         <p className="mb-5 text-xl md:text-5xl">Suzie and Priya Land in <span class="blinker2">Vegas!</span></p>
         <p className="text-2xl md:text-6xl">{this.state.countdownTime}</p>
         <p className="mt-6 blinker">Happy Suzie Birthday!</p>
